@@ -1,7 +1,7 @@
 package main
 
 import (
-	"cdekapi/package"
+	"github.com/psyneverdie/cdekapi/package"
 	"encoding/json"
 	"fmt"
 )
