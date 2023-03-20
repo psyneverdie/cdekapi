@@ -60,6 +60,14 @@ type CDEKTokenResponse struct {
 	TokenType   string `json:"token_type"`
 }
 
+type location struct {
+	Code int `json:"code"`
+}
+
+type responseData struct {
+	TariffCodes []PriceSending `json:"tariff_codes"`
+}
+
 func NewCDEKAuth(grantType, clientID, clientSecret string, apiURL string) *CDEKAuth {
 	return &CDEKAuth{
 		GrantType:    grantType,
@@ -100,14 +108,6 @@ func (c *CDEKAuth) GetToken() (string, error) {
 	}
 
 	return tokenResp.AccessToken, nil
-}
-
-type location struct {
-	Code int `json:"code"`
-}
-
-type responseData struct {
-	TariffCodes []PriceSending `json:"tariff_codes"`
 }
 
 func NewCDEKClient(token string, testMode bool, apiAddress string) *CDEKClient {
